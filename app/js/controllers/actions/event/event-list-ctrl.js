@@ -43,15 +43,6 @@ angular
 		categories: {}
 	};
 
-	//mapping teamID to teamName
-	Restangular.all('teams')
-		.getList()
-		.then(function(teams) {
-			_.each(teams, function(element) {
-				teamsIdToName[element.id] = element.attributes.name;
-			});
-		});
-
 	//mapping venueID to venueName
 	Restangular.all('venues')
 		.getList()
