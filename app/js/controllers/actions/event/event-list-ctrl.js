@@ -2,7 +2,8 @@
 
 angular
 .module('app.controllers')
-.controller('EventListCtrl', function($scope, $sce, $rootScope, $stateParams, $state, Restangular, apiDescriptor, dataTransformer) {
+.controller('EventListCtrl', function($scope, $sce, $rootScope, $stateParams, $state,
+		Restangular, apiDescriptor, dataTransformer, preProcess) {
 	var resourceName = $stateParams.resourceName;
 	var resourceId = $stateParams.id;
 	$scope.resourceName = resourceName;
@@ -18,7 +19,7 @@ angular
 		return monthNames[month - 1] + " " + year;
 	}
 
-	var teamsIdToName = {};
+	var teamsIdToName = preProcess.teamIdtoNames();
 	var venuesIdToName = {};
 	var organizationIdToName = {};
 	var personIdToName = {};
