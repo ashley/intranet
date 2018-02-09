@@ -1,13 +1,189 @@
 <div class="container">
-  <div class="card-deck justify-content-md-center">
-    <div ng-repeat="rdesc in apidesc">
-      <div class="card" style="width: 300px; height: 150px; margin: 20px">
-        <div class="card-body">
-          <h4 class="card-title">{{rdesc.attributes.name.plural}}</h4>
-          <a ui-sref="list({resourceName: rdesc.id})" class="btn btn-outline-primary">List</a>
-          <a ui-sref="add({resourceName: rdesc.id})" class="btn btn-success">Add</a>
+    <div class="card-deck">
+        <!-- Sites Card -->
+        <div class="card topCard">
+            <h4 class="card-header">
+                Sites
+            </h4>
+            <div class="card-body">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        Tech@NYU.org
+                        <a href="#">(prod)</a>
+                        <a href="#">(staging)</a>
+                    </li>
+                    <li class="list-group-item">
+                        Intranet
+                        <a href="#">(prod)</a>
+                        <a href="#">(staging)</a>
+                    </li>
+                    <li class="list-group-item">
+                        Calendar
+                        <a href="#">(prod)</a>
+                        <a href="#">(staging)</a>
+                    </li>
+                    <li class="list-group-item">
+                        RSVP
+                        <a href="#">(prod)</a>
+                        <a href="#">(staging)</a>
+                    </li>
+                    <li class="list-group-item">
+                        Check-In
+                        <a href="#">(prod)</a>
+                        <a href="#">(staging)</a>
+                    </li>
+                    <li class="list-group-item">
+                        Mailtrain
+                        <a href="#">(prod)</a>
+                        <a href="#">(staging)</a>
+                    </li>
+                    <li class="list-group-item">
+                        Mosaico
+                        <a href="#">(prod)</a>
+                        <a href="#">(staging)</a>
+                    </li>
+                    <li class="list-group-item">
+                        Discuss
+                        <a href="#">(prod)</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-      </div>
+        <!-- Sites Card -->
+        <div class="card topCard">
+            <h4 class="card-header">
+                Current e-Board
+            </h4>
+            <div class="card-body">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        Name - Position
+                    </li>
+                    <li class="list-group-item">
+                        Name - Position
+                    </li>
+                    <li class="list-group-item">
+                        Name - Position
+                    </li>
+                    <li class="list-group-item">
+                        Name - Position
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+
+        <div class="card topCard cardButton">
+            <div class="card-body">
+            <h2 class="card-title">Events 🚀 </h2>
+
+            </div>
+            <div class="card-footer">
+                    <center><h3>+</h3></center>
+                </div>
+        </div>     
     </div>
-  </div>
+    <br>
+<div class="card-deck-wrapper">
+    <div class="card-deck">
+        <div class="card midCard cardButton">
+            <div class="card-body">
+            <h3 class="card-title">Membership 👥 </h3>
+
+            </div>
+            <div class="card-footer">
+                    <center><h3>+</h3></center>
+                </div>
+        </div>  
+        <div class="card midCard cardButton">
+                <div class="card-body">
+                <h3 class="card-title">Expenses 🍕 </h3>
+    
+                </div>
+                <div class="card-footer">
+                        <center><h3>+</h3></center>
+                    </div>
+            </div> 
+
+            <div class="card midCard cardButton">
+            <div class="card-body">
+            <h3 class="card-title">Position 👮🏽 </h3>
+
+            </div>
+            <div class="card-footer">
+                    <center><h3>+</h3></center>
+                </div>
+        </div> 
+    </div>
+    <br>
+    <div class="card-deck">
+            <div class="card midCard cardButton">
+                <div class="card-body">
+                <h3 class="card-title">Venue 🏛 </h3>
+    
+                </div>
+                <div class="card-footer">
+                        <center><h3>+</h3></center>
+                    </div>
+            </div>  
+            <div class="card midCard">
+                    <div class="card-body cardButton">
+                    <h3 class="card-title">Jobs 👕 </h3>
+        
+                    </div>
+                    <div class="card-footer">
+                            <center><h3>+</h3></center>
+                        </div>
+                </div> 
+    
+                <div class="card midCard cardButton">
+                <div class="card-body">
+                <h3 class="card-title">Organizations 🏙 </h3>
+    
+                </div>
+                <div class="card-footer">
+                        <center><h3>+</h3></center>
+                    </div>
+            </div> 
+        </div>
 </div>
+<br>
+<h2>Other Resources</h2>
+<div class="card-deck">
+        <!-- Sites Card -->
+        <div class="card topCard">
+            <h4 class="card-header">
+                Sites
+            </h4>
+            <div class="card-body">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        Ship.tnyu.org
+                        <a href="#">(prod)</a>
+                        <a href="#">(staging)</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- Sites Card -->
+        <div class="card topCard">
+            <h4 class="card-header">
+                Resources
+            </h4>
+            <div class="card-body">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        Reimbursement Requests
+                    </li>
+                    <li class="list-group-item">
+                        Surveys
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>    
+    </div>
+
+</div>
+
+
