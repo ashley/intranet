@@ -2,7 +2,7 @@
 
 angular
 .module('app.controllers')
-.controller('MembershipListCtrl', function($scope, $rootScope, $stateParams, $state, Restangular, apiDescriptor, dataTransformer, preProcess) {
+.controller('MembershipListCtrl', function($scope, $rootScope, $stateParams, $state, Restangular, apiDescriptor, dataTransformer) {
 	var resourceName = $stateParams.resourceName;
 	var resourceId = $stateParams.id;
 	$scope.resourceName = resourceName;
@@ -18,7 +18,13 @@ angular
 	}
 
 	//mapping teamID to teamName
-	var teamsIdToName = preProcess.objectIdtoName('teams');
+	Restangular.all('teams')
+		.getList()
+		.then(function(teams) {
+			_.each(teams, function(element) {
+				teamsIdToName[element.id] = element.attributes.name;
+			});
+		});
 
 
 	Restangular.all(resourceName)
@@ -40,10 +46,10 @@ angular
 				.then(function(position) {
 					$scope.memberDetails.push({
 						'id': element.id,
-						'display': person.attributes.name + " | " + preProcess.positionToString(teamsIdToName, position, true),
+						'display': person.attributes.name + " | " + teamsIdToName[position.relationships.team.data.id] + (position.attributes.isLead ? " (Lead)" : ""),
 						'name': person.attributes.name,
-            'team': preProcess.positionToString(teamsIdToName, position, false),
-						'position': preProcess.positionToString(teamsIdToName, position, true),
+            'team': teamsIdToName[position.relationships.team.data.id],
+						'position': teamsIdToName[position.relationships.team.data.id] + (position.attributes.isLead ? " (Lead)" : ""),
 						'isActive': element.attributes.isActive,
             'isLead': position.attributes.isLead,
 						'startDate': element.attributes.startDate,

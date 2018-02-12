@@ -21,7 +21,7 @@ angular
 	});
 
 	$scope.createResource = function (model, rdesc) {
-		dataTransformer.createResource(model, rdesc, resource).then((data, err) => {
+		dataTransformer.createResource(model, rdesc, resource).then(function(data) {
 			$state.go('list', {resourceName: resourceName, selectionMode: 'single', id: data.id});
 		});
 	}
