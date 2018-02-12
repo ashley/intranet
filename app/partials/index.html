@@ -7,45 +7,13 @@
             </h4>
             <div class="card-body">
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">
-                        Tech@NYU.org
-                        <a href="#">(prod)</a>
-                        <a href="#">(staging)</a>
-                    </li>
-                    <li class="list-group-item">
-                        Intranet
-                        <a href="#">(prod)</a>
-                        <a href="#">(staging)</a>
-                    </li>
-                    <li class="list-group-item">
-                        Calendar
-                        <a href="#">(prod)</a>
-                        <a href="#">(staging)</a>
-                    </li>
-                    <li class="list-group-item">
-                        RSVP
-                        <a href="#">(prod)</a>
-                        <a href="#">(staging)</a>
-                    </li>
-                    <li class="list-group-item">
-                        Check-In
-                        <a href="#">(prod)</a>
-                        <a href="#">(staging)</a>
-                    </li>
-                    <li class="list-group-item">
-                        Mailtrain
-                        <a href="#">(prod)</a>
-                        <a href="#">(staging)</a>
-                    </li>
-                    <li class="list-group-item">
-                        Mosaico
-                        <a href="#">(prod)</a>
-                        <a href="#">(staging)</a>
-                    </li>
-                    <li class="list-group-item">
-                        Discuss
-                        <a href="#">(prod)</a>
-                    </li>
+                    <div ng-repeat="site in relatedSites">
+                        <li class="list-group-item">
+                            <a ng-href="{{site.mainLink}}">{{site.name}}</a>
+                            <a ng-href="{{site.prodLink}}">(prod)</a>
+                            <a ng-href="{{site.stagingLink}}">(staging)</a>
+                        </li>
+                    </div>
                 </ul>
             </div>
         </div>
@@ -59,93 +27,43 @@
                     <li class="list-group-item">
                         Name - Position
                     </li>
-                    <li class="list-group-item">
-                        Name - Position
-                    </li>
-                    <li class="list-group-item">
-                        Name - Position
-                    </li>
-                    <li class="list-group-item">
-                        Name - Position
-                    </li>
-                    
                 </ul>
             </div>
         </div>
 
-        <div class="card topCard cardButton">
+        <div ng-repeat="card in mainCard" class="card topCard cardButton">
             <div class="card-body">
-            <h2 class="card-title">Events 🚀 </h2>
+                <a ng-href="/#/r{{card.listLink}}">
+                    <h2 class="card-title">{{card.name}}</h2>
+                </a>
 
             </div>
-            <div class="card-footer">
-                    <center><h3>+</h3></center>
+            <a ng-href="/#/r{{card.addLink}}">
+                <div class="card-footer">
+                        <center><h3>+</h3></center>
                 </div>
+            </a>
         </div>     
     </div>
     <br>
 <div class="card-deck-wrapper">
-    <div class="card-deck">
-        <div class="card midCard cardButton">
-            <div class="card-body">
-            <h3 class="card-title">Membership 👥 </h3>
-
-            </div>
-            <div class="card-footer">
-                    <center><h3>+</h3></center>
-                </div>
-        </div>  
-        <div class="card midCard cardButton">
+    <div ng-repeat="cardRow in subCards">
+        <div class="card-deck">
+            <div ng-repeat="card in cardRow" class="card midCard cardButton">
                 <div class="card-body">
-                <h3 class="card-title">Expenses 🍕 </h3>
-    
+                    <a ng-href="/#/r{{card.listLink}}">
+                        <h3 class="card-title">{{card.name}}</h3>
+                    </a>
                 </div>
+                <a ng-href="/#/r{{card.addLink}}">
                 <div class="card-footer">
                         <center><h3>+</h3></center>
-                    </div>
-            </div> 
-
-            <div class="card midCard cardButton">
-            <div class="card-body">
-            <h3 class="card-title">Position 👮🏽 </h3>
-
-            </div>
-            <div class="card-footer">
-                    <center><h3>+</h3></center>
                 </div>
-        </div> 
-    </div>
-    <br>
-    <div class="card-deck">
-            <div class="card midCard cardButton">
-                <div class="card-body">
-                <h3 class="card-title">Venue 🏛 </h3>
-    
-                </div>
-                <div class="card-footer">
-                        <center><h3>+</h3></center>
-                    </div>
+                </a>
             </div>  
-            <div class="card midCard">
-                    <div class="card-body cardButton">
-                    <h3 class="card-title">Jobs 👕 </h3>
-        
-                    </div>
-                    <div class="card-footer">
-                            <center><h3>+</h3></center>
-                        </div>
-                </div> 
-    
-                <div class="card midCard cardButton">
-                <div class="card-body">
-                <h3 class="card-title">Organizations 🏙 </h3>
-    
-                </div>
-                <div class="card-footer">
-                        <center><h3>+</h3></center>
-                    </div>
-            </div> 
         </div>
+        <br>
+    </div>
 </div>
 <br>
 <h2>Other Resources</h2>
