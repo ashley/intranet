@@ -2,8 +2,7 @@
 
 angular
 .module('app.controllers')
-.controller('IncomesListCtrl', function($scope, $filter, $rootScope, $stateParams, $state, 
-	Restangular, apiDescriptor, dataTransformer, preProcess) {
+.controller('IncomesListCtrl', function($scope, $filter, $rootScope, $stateParams, $state, Restangular, apiDescriptor, dataTransformer) {
 	var resourceName = $stateParams.resourceName;
 	var resourceId = $stateParams.id;
 	$scope.resourceName = resourceName;
@@ -11,7 +10,9 @@ angular
 		$scope.rdesc = apiDescription.resource(resourceName);
 	});
 
-	$scope.displayDate = preProcess.displayDate($filter);
+	$scope.displayDate = function(date) {
+		return $filter('date')(date, 'MMMM yyyy');
+	}
 
 	$scope.authorizer = {};
 
