@@ -2,7 +2,7 @@
 
 angular
 .module('app.controllers')
-.controller('VenuesListCtrl', function($scope, $rootScope, $stateParams, $state, Restangular, apiDescriptor, dataTransformer) {
+.controller('VenuesListCtrl', function($scope, $rootScope, $stateParams, $state, Restangular, apiDescriptor, dataTransformer, uiGmapGoogleMapApi) {
 	var resourceName = $stateParams.resourceName;
 	var resourceId = $stateParams.id;
 	$scope.resourceName = resourceName;
@@ -15,6 +15,10 @@ angular
 		selectionMode = 'multiple';
 	}
 
+	$scope.map = { center: { latitude: 40.72, longitude: -73.98 }, zoom: 13 };	
+	$scope.options = { scrollwheel: false };
+	$scope.Amarkers = [];
+	var markers = [];
 	$scope.selectionMode = selectionMode;
 	Restangular.all(resourceName)
 		.getList()
@@ -24,10 +28,24 @@ angular
 		if (resourceId) {
 			$scope.model = _.find($scope.data, {id: resourceId});
 		}
-
+		
 		$scope.organizations = {};
+
 		//mapping venueID to organizations
+		var geocoder = new google.maps.Geocoder();
 		_.each($scope.data, function(element) {
+			geocoder.geocode( { 'address': element.attributes.address}, function(results, status) {
+				if(status === 'OK'){
+					markers.push({
+						'id':
+						{
+							'latitude': results[0].geometry.location.lat(),
+							'longitude': results[0].geometry.location.lng(),
+							'title': element.attributes.name
+						}
+					});
+				}
+			});
 			if (element.relationships.organization.data !== null) {
 				Restangular.one("organizations/" + element.relationships.organization.data.id)
 				.get()
@@ -36,6 +54,7 @@ angular
 				});
 			}
 		})
+		$scope.Amarkers = markers;
 	});
 
 	$scope.updateSelection = function(newModelId) {
