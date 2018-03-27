@@ -6,7 +6,11 @@
     "start": "http-server ./app -p 3000 -c-1",
     "test": "karma start ./test/karma.conf.js"
   },
-  "dependencies": {},
+  "dependencies": {
+    "angular": "^1.6.9",
+    "angular-google-maps": "^2.4.1",
+    "angular-simple-logger": "^0.1.7"
+  },
   "devDependencies": {
     "http-server": "^0.8.5",
     "jasmine-core": "^2.2.0",

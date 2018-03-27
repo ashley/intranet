@@ -2,7 +2,6 @@
 
 angular.module('app.services', ['restangular']);
 angular.module('app.controllers', ['app.services']);
-//angular.module('myApplicationModule', ['uiGmapgoogle-maps']);
 
 angular.module('app', [
 	'ngSanitize',
